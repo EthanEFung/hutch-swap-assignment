@@ -93,7 +93,8 @@ Following are the expected functionalities to be implemented:
 - When a user clicks on a product in the room, the list of similar products should be updated showing the related products, the type of the selected product should also be displayed (e.g. Sofa, Plant, ...). Be aware, some product images have transparent areas, if the user clicks on that area the item behind it should be selected (if any). If you closely look at the gif, the inital mouse cursor shows an are of interest for this behavior
 - If the clicked product has no similar products, the user should be provided with some feedback saying that no similar products were found
 - If the clicked product has similar products then each one should show a preview image and its price (see the gif)
-- When clicking on a similar product, the product in the room should be replaced with the similar product. You can assume that position and dimensions will be the same, only the url will be updated
+- When clicking on a similar product the UI should highlight the selection (see gif) and the product in the room should be replaced with the similar product just selected. You can assume that position and dimensions will be the same (the product images technically don't have same dimensions, if after swapping they look a bit squashed or stretched that's totally fine), only the image will be updated
 - The first element on the list of similar products (if there are any) should be the inital one, this will allow the user to swap back to it if needed (see the gif)
 
-For extra points you can Promisify the provided function, and treat it like you would treat an async call (e.g. an API call).
+For extra points you can Promisify the provided function, and treat it like you would treat an async call (e.g. an API call)
+
