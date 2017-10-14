@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 
 class SimilarProductsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasSimilarProducts: false
-    };
-  }
-
-  componentDidUpdate() {}
-
   render() {
     let { similar_producs } = this.props;
 
@@ -20,6 +11,7 @@ class SimilarProductsList extends Component {
           ? similar_producs.map((product, i) => (
               <div key={i} {...product}>
                 <img src={product.url} alt={product.url} />
+                <div className="pricetag">{product.price}</div>
               </div>
             ))
           : null}
