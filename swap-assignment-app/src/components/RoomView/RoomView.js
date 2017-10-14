@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Product from "../Product";
 
 class RoomView extends Component {
   // constructor(props) {
@@ -9,13 +8,14 @@ class RoomView extends Component {
   render() {
     return (
       <div>
-        {this.props.products.map(product => {
-          return (
-            <div {...product} onClick={this.props.handleRoomProductClick}>
-              {product.id}
-            </div>
-          );
-        })}
+        {this.props.products.map(product => (
+          <img
+            key={product.id}
+            src={product.url}
+            {...product}
+            onClick={this.props.handleRoomProductClick}
+          />
+        ))}
       </div>
     );
   }
