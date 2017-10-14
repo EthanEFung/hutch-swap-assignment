@@ -21,10 +21,15 @@ class App extends Component {
     });
   }
   render() {
+    const { room_type, room_photo, products } = this.state;
     return (
       <div className="App">
-        <RoomView />
-        <SimilarProductsView />
+        <RoomView
+          roomType={room_type}
+          roomPhoto={room_photo}
+          products={products}
+        />
+        <SimilarProductsView products={products} />
       </div>
     );
   }
