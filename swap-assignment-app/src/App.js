@@ -27,8 +27,9 @@ class App extends Component {
     });
   }
 
-  handleRoomProductClick() {
-    console.log("handleRoomProductClick");
+  handleRoomProductClick(e) {
+    console.log("this is what is clicked", e.target);
+    // this.setState({current_product: e})
   }
 
   render() {
