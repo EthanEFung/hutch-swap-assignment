@@ -5,6 +5,10 @@ import RoomView from "./components/RoomView/RoomView";
 import SimilarProductsView from "./components/SimilarProductsView/SimilarProductsView";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <div className="App">
