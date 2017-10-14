@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import RoomView from "./components/RoomView/RoomView";
 import SimilarProductsView from "./components/SimilarProductsView/SimilarProductsView";
@@ -11,25 +11,40 @@ class App extends Component {
     this.state = {
       room_type: "",
       room_photo: "",
-      products: []
+      products: [],
+      current_product: ""
     };
+
+    this.handleRoomProductClick = this.handleRoomProductClick.bind(this);
   }
 
   componentDidMount() {
     getData.then(res => {
-      this.setState(res, () => console.log("this is the state", this.state));
+      this.setState(res);
+      this.setState({ current_product: this.state.products[0] }, () =>
+        console.log("STATE: ", this.state)
+      );
     });
   }
+
+  handleRoomProductClick() {
+    console.log("handleRoomProductClick");
+  }
+
   render() {
-    const { room_type, room_photo, products } = this.state;
+    const { room_type, room_photo, products, current_product } = this.state;
     return (
       <div className="App">
         <RoomView
           roomType={room_type}
           roomPhoto={room_photo}
           products={products}
+          handleRoomProductClick={this.handleRoomProductClick}
         />
-        <SimilarProductsView products={products} />
+        <SimilarProductsView
+          products={products}
+          currentProduct={current_product}
+        />
       </div>
     );
   }
