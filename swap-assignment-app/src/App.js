@@ -16,6 +16,7 @@ class App extends Component {
     };
 
     this.handleRoomProductClick = this.handleRoomProductClick.bind(this);
+    this.findTargetProduct = this.findTargetProduct.bind(this);
   }
 
   componentDidMount() {
@@ -27,9 +28,17 @@ class App extends Component {
     });
   }
 
+  findTargetProduct(targetId) {
+    for (let product of this.state.products) {
+      if (product.id.toString() === targetId) {
+        this.setState({ current_product: product });
+      }
+    }
+  }
+
   handleRoomProductClick(e) {
-    console.log("this is what is clicked", e.target);
-    // this.setState({current_product: e})
+    console.log("this is what is clicked", e.target.id);
+    this.findTargetProduct(e.target.id);
   }
 
   render() {
