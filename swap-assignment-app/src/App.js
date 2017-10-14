@@ -44,7 +44,8 @@ class App extends Component {
     console.log("this is what is clicked", e.target.id);
     this.findTargetProduct(e.target.id)
       .then(res => res())
-      .then(() => console.log("promisified", this.state));
+      .then(() => console.log("promisified", this.state))
+      .catch(err => console.log("something went wrong", err));
   }
 
   render() {
