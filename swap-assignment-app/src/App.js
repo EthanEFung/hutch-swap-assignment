@@ -29,16 +29,22 @@ class App extends Component {
   }
 
   findTargetProduct(targetId) {
-    for (let product of this.state.products) {
-      if (product.id.toString() === targetId) {
-        this.setState({ current_product: product });
-      }
-    }
+    return new Promise(resolve => {
+      resolve(() => {
+        for (let product of this.state.products) {
+          if (product.id.toString() === targetId) {
+            this.setState({ current_product: product });
+          }
+        }
+      });
+    });
   }
 
   handleRoomProductClick(e) {
     console.log("this is what is clicked", e.target.id);
-    this.findTargetProduct(e.target.id);
+    this.findTargetProduct(e.target.id)
+      .then(res => res())
+      .then(() => console.log("promisified", this.state));
   }
 
   render() {

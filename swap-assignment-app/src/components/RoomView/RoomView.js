@@ -12,6 +12,7 @@ class RoomView extends Component {
           <img
             key={product.id}
             src={product.url}
+            alt={product.id}
             {...product}
             onClick={this.props.handleRoomProductClick}
           />
