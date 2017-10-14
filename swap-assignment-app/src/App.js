@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import RoomView from "./components/RoomView";
-import SimilarProductsView from "./components/SimilarProductsView";
+import RoomView from "./components/RoomView/RoomView";
+import SimilarProductsView from "./components/SimilarProductsView/SimilarProductsView";
 
 class App extends Component {
   render() {
