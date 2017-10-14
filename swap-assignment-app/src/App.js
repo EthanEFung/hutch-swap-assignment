@@ -8,11 +8,17 @@ import getData from "./dummyData";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      room_type: "",
+      room_photo: "",
+      products: []
+    };
   }
 
   componentDidMount() {
-    getData.then(res => console.log(res));
+    getData.then(res => {
+      this.setState(res, () => console.log("this is the state", this.state));
+    });
   }
   render() {
     return (

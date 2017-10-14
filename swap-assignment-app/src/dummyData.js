@@ -83,7 +83,7 @@ const getData = new Promise((resolve, reject) => {
     ]
   });
 
-  reject(console.log("could not get dummy data"));
+  reject({ error: "could not get dummy data" });
 });
 
 export default getData;
