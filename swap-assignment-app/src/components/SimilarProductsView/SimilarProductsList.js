@@ -9,9 +9,9 @@ class SimilarProductsList extends Component {
         <div>Similar Products</div>
         {!!similar_producs && similar_producs.length > 0
           ? similar_producs.map((product, i) => (
-              <div key={i} {...product}>
+              <div key={i} onClick={this.props.handleSimilarProductClick}>
                 <img src={product.url} alt={product.url} />
-                <div className="pricetag">{product.price}</div>
+                <div className="price">{product.price}</div>
               </div>
             ))
           : null}
