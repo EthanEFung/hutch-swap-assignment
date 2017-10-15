@@ -12,16 +12,27 @@ class App extends Component {
       room_type: "",
       room_photo: "",
       products: [],
-      current_product: ""
+      current_product: {},
+      similar_products: []
     };
     this.handleRoomProductClick = this.handleRoomProductClick.bind(this);
     this.handleSimilarProductClick = this.handleSimilarProductClick.bind(this);
   }
 
   componentDidMount() {
-    getData
-      .then(res => this.setState(res))
-      .then(() => this.setState({ current_product: this.state.products[0] }));
+    getData.then(res => this.setState(res)).then(() => {
+      const current_product = this.state.products[0];
+      const { url, price } = current_product;
+      const similar_products = [
+        { url, price },
+        ...current_product.similar_producs
+      ];
+
+      this.setState({
+        current_product,
+        similar_products
+      });
+    });
   }
 
   handleRoomProductClick(e) {
@@ -36,11 +47,20 @@ class App extends Component {
 
   handleSimilarProductClick(e) {
     e.preventDefault();
-    console.log(e.target.attributes.url.value);
+    const { current_product } = this.state;
+    current_product.url = e.target.attributes.url.value;
+
+    this.setState({ current_product: current_product });
   }
 
   render() {
-    const { room_type, room_photo, products, current_product } = this.state;
+    const {
+      room_type,
+      room_photo,
+      products,
+      current_product,
+      similar_products
+    } = this.state;
     return (
       <div className="App">
         <div>{room_type}</div>
@@ -52,6 +72,7 @@ class App extends Component {
         />
         <SimilarProductsView
           products={products}
+          similarProducts={similar_products}
           currentProduct={current_product}
           handleSimilarProductClick={this.handleSimilarProductClick}
         />
