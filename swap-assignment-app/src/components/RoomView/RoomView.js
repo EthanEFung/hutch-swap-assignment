@@ -1,22 +1,16 @@
 import React, { Component } from "react";
+import RoomProductList from "./RoomProductList";
 
 class RoomView extends Component {
   render() {
-    const { products } = this.props;
+    const { roomPhoto, products, handleRoomProductClick } = this.props;
     return (
       <div>
-        {products.map(product => {
-          const { id, url } = product;
-          return (
-            <img
-              key={id}
-              src={url}
-              alt={id}
-              {...product}
-              onClick={this.props.handleRoomProductClick}
-            />
-          );
-        })}
+        <img src={roomPhoto} alt={roomPhoto} />
+        <RoomProductList
+          handleRoomProductClick={handleRoomProductClick}
+          products={products}
+        />
       </div>
     );
   }

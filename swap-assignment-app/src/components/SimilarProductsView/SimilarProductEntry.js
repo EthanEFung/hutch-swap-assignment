@@ -2,12 +2,18 @@ import React, { Component } from "react";
 
 class SimilarProductEntry extends Component {
   render() {
-    console.log(this.props);
-    const { i, handleSimilarProductClick, url, price } = this.props;
+    const { handleSimilarProductClick, url, price } = this.props;
     return (
-      <div key={i} onClick={handleSimilarProductClick}>
-        <img src={url} alt={url} />
-        <div className="price">{price}</div>
+      <div
+        className="similar-product-entry-container"
+        key={url}
+        url={url}
+        onClick={handleSimilarProductClick}
+      >
+        <img src={url} alt={url} url={url} />
+        <div className="price" url={url}>
+          {price}
+        </div>
       </div>
     );
   }

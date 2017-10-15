@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
-import "./App.css";
-import RoomView from "./components/RoomView/RoomView";
-import SimilarProductsView from "./components/SimilarProductsView/SimilarProductsView";
-import getData from "./dummyData";
+import "../App.css";
+import RoomView from "./RoomView/RoomView";
+import SimilarProductsView from "./SimilarProductsView/SimilarProductsView";
+import getData from "../dummyData";
 
 class App extends Component {
   constructor(props) {
@@ -14,42 +14,29 @@ class App extends Component {
       products: [],
       current_product: ""
     };
-
     this.handleRoomProductClick = this.handleRoomProductClick.bind(this);
     this.handleSimilarProductClick = this.handleSimilarProductClick.bind(this);
-    this.findTargetProduct = this.findTargetProduct.bind(this);
   }
 
   componentDidMount() {
-    getData.then(res => {
-      this.setState(res);
-      this.setState({ current_product: this.state.products[0] }, () =>
-        console.log("STATE: ", this.state)
-      );
-    });
-  }
-
-  findTargetProduct(targetId) {
-    return new Promise(resolve => {
-      resolve(() => {
-        for (let product of this.state.products) {
-          if (product.id.toString() === targetId) {
-            this.setState({ current_product: product });
-          }
-        }
-      });
-    });
+    getData
+      .then(res => this.setState(res))
+      .then(() => this.setState({ current_product: this.state.products[0] }));
   }
 
   handleRoomProductClick(e) {
-    this.findTargetProduct(e.target.id)
-      .then(res => res())
-      .then(() => console.log("promisified", this.state))
-      .catch(err => console.log("something went wrong", err));
+    e.preventDefault();
+    const targetId = e.target.alt;
+    for (let product of this.state.products) {
+      if (product.id.toString() === targetId) {
+        this.setState({ current_product: product });
+      }
+    }
   }
 
   handleSimilarProductClick(e) {
-    console.log("i hear you");
+    e.preventDefault();
+    console.log(e.target.attributes.url.value);
   }
 
   render() {
