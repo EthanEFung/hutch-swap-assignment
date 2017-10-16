@@ -8,15 +8,14 @@ class SimilarProductEntry extends Component {
     } = this.props;
 
     const containerStyle = {
-      border: "1px solid black",
-      width: "300px",
-
-      margin: "10px",
-      padding: "5px 5px 5px 5px"
+      border: "1px solid #555",
+      width: 150,
+      margin: 10,
+      padding: 5
     };
 
     const productStyle = {
-      height: 100
+      height: 60
     };
 
     return (

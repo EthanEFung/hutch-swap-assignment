@@ -68,7 +68,7 @@ class App extends Component {
     } = this.state;
 
     const appStyle = {
-      fontSize: 32,
+      fontSize: 18,
       fontFamily: "helvetica-neue",
       textAlign: "center"
     };

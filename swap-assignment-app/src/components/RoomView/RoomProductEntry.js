@@ -2,7 +2,12 @@ import React, { Component } from "react";
 
 class RoomProductEntry extends Component {
   render() {
-    const { handleRoomProductClick, product, viewedProduct } = this.props;
+    const {
+      handleRoomProductClick,
+      product,
+      viewedProduct,
+      roomStyle
+    } = this.props;
     // console.log("entry props", product);
 
     const view =
@@ -13,10 +18,10 @@ class RoomProductEntry extends Component {
     const productStyle = {
       position: "absolute",
       zIndex: product.index,
-      top: product.top * 7.5,
-      left: product.left * 7.5,
-      width: product.width * 7.5,
-      height: product.height * 7.5
+      top: product.top / 100 * roomStyle.width,
+      left: product.left / 100 * roomStyle.width,
+      width: product.width / 100 * roomStyle.width,
+      height: product.height / 100 * roomStyle.width
     };
 
     console.log(productStyle);

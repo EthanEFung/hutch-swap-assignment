@@ -2,34 +2,26 @@ import React, { Component } from "react";
 import SimilarProductEntry from "./SimilarProductEntry";
 
 class SimilarProductsList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      list: []
-    };
-  }
-
   render() {
     const { currentProduct } = this.props;
 
-    const list = !!currentProduct.similar_producs
-      ? [currentProduct, ...currentProduct.similar_producs]
-      : [currentProduct];
+    const similarItems =
+      !!currentProduct.similar_producs &&
+      currentProduct.similar_producs.length > 0
+        ? [
+            currentProduct,
+            ...currentProduct.similar_producs
+          ].map((product, i) => (
+            <SimilarProductEntry
+              key={i}
+              currentProduct={currentProduct}
+              similarProduct={product}
+              handleSimilarProductClick={this.props.handleSimilarProductClick}
+            />
+          ))
+        : "No similar items were found";
 
-    return (
-      <div>
-        <div>Similar Products</div>
-        {list.map((product, i) => (
-          <SimilarProductEntry
-            key={i}
-            currentProduct={currentProduct}
-            similarProduct={product}
-            handleSimilarProductClick={this.props.handleSimilarProductClick}
-          />
-        ))}
-      </div>
-    );
+    return <div>{similarItems}</div>;
   }
 }
 

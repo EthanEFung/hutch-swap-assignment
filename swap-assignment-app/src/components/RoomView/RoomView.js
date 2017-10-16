@@ -16,7 +16,7 @@ class RoomView extends Component {
     };
 
     const roomStyle = {
-      width: 750,
+      width: 500,
       zIndex: -1
     };
 
@@ -24,6 +24,7 @@ class RoomView extends Component {
       <div className="room-view" style={viewStyle}>
         <img src={roomPhoto} alt="room" style={roomStyle} />
         <RoomProductList
+          roomStyle={roomStyle}
           viewedProduct={viewedProduct}
           handleRoomProductClick={handleRoomProductClick}
           products={products}

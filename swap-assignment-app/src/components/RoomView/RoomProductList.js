@@ -3,7 +3,12 @@ import RoomProductEntry from "./RoomProductEntry";
 
 class RoomProductList extends Component {
   render() {
-    const { products, handleRoomProductClick, viewedProduct } = this.props;
+    const {
+      products,
+      handleRoomProductClick,
+      viewedProduct,
+      roomStyle
+    } = this.props;
     return (
       <div>
         {!!products ? (
@@ -12,6 +17,7 @@ class RoomProductList extends Component {
               key={i}
               viewedProduct={viewedProduct}
               product={product}
+              roomStyle={roomStyle}
               handleRoomProductClick={handleRoomProductClick}
             />
           ))
