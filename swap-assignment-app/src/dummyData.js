@@ -1,4 +1,4 @@
-const getData = new Promise((resolve, reject) => {
+const getData = new Promise(resolve => {
   resolve({
     room_type: "living_room",
     room_photo:
@@ -82,8 +82,6 @@ const getData = new Promise((resolve, reject) => {
       }
     ]
   });
-
-  reject({ error: "could not get dummy data" });
 });
 
 export default getData;
