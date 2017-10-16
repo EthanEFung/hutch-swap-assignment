@@ -51,9 +51,7 @@ class App extends Component {
 
     for (let product of this.state.products) {
       if (product.id.toString() === alt) {
-        this.setState({ viewed_product: { url, alt, price } }, () => {
-          console.log(this.state);
-        });
+        this.setState({ viewed_product: { url, alt, price } });
       }
     }
   }
