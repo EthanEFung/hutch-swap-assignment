@@ -11,9 +11,10 @@ class SimilarProductsView extends Component {
 
     const bannerStyle = {
       width: "95%",
+      border: "1px solid #777",
       margin: "0 25 0 25",
       padding: 6,
-      backgroundColor: "#eee"
+      backgroundColor: "#fff"
     };
 
     return (

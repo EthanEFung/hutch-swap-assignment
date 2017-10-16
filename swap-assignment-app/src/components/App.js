@@ -63,7 +63,6 @@ class App extends Component {
       products,
       current_product,
       viewed_product
-      // similar_products
     } = this.state;
 
     const appStyle = {
@@ -72,7 +71,7 @@ class App extends Component {
       fontSize: 16,
       fontFamily: "Lato",
       textAlign: "left",
-      backgroundColor: "#ddd",
+      backgroundColor: "#eee",
       padding: 10
     };
 
