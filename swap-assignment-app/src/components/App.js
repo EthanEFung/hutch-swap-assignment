@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import logo from "./logo.svg";
-import "../App.css";
 import RoomView from "./RoomView/RoomView";
 import SimilarProductsView from "./SimilarProductsView/SimilarProductsView";
 import getData from "../dummyData";
@@ -65,13 +63,18 @@ class App extends Component {
       room_photo,
       products,
       current_product,
-      viewed_product,
-      similar_products
+      viewed_product
+      // similar_products
     } = this.state;
 
+    const appStyle = {
+      fontSize: 32,
+      fontFamily: "helvetica-neue",
+      textAlign: "center"
+    };
+
     return (
-      <div className="App">
-        <div>{room_type}</div>
+      <div className="App" style={appStyle}>
         <RoomView
           roomType={room_type}
           roomPhoto={room_photo}
@@ -80,6 +83,7 @@ class App extends Component {
           viewedProduct={viewed_product}
           handleRoomProductClick={this.handleRoomProductClick}
         />
+
         <SimilarProductsView
           products={products}
           currentProduct={current_product}

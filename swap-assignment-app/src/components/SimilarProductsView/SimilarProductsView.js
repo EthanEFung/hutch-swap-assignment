@@ -3,10 +3,13 @@ import SimilarProductsList from "./SimilarProductsList";
 class SimilarProductsView extends Component {
   render() {
     const { currentProduct, handleSimilarProductClick } = this.props;
-    const { type, price, url } = currentProduct;
+
+    const viewStyle = {
+      float: "left"
+    };
 
     return (
-      <div>
+      <div style={viewStyle}>
         <div className="current-product-banner">{currentProduct.type}</div>
         <SimilarProductsList
           currentProduct={currentProduct}

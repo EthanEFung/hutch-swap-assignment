@@ -9,9 +9,20 @@ class RoomView extends Component {
       handleRoomProductClick,
       viewedProduct
     } = this.props;
+
+    const viewStyle = {
+      position: "relative",
+      float: "left"
+    };
+
+    const roomStyle = {
+      width: 750,
+      zIndex: -1
+    };
+
     return (
-      <div>
-        <img src={roomPhoto} alt={roomPhoto} />
+      <div className="room-view" style={viewStyle}>
+        <img src={roomPhoto} alt="room" style={roomStyle} />
         <RoomProductList
           viewedProduct={viewedProduct}
           handleRoomProductClick={handleRoomProductClick}
