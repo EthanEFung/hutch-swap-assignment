@@ -2,14 +2,19 @@ import React, { Component } from "react";
 
 class RoomProductEntry extends Component {
   render() {
-    const { id, url, handleRoomProductClick, product } = this.props;
+    const { url, handleRoomProductClick, product, viewedProduct } = this.props;
+
+    const view =
+      product.id.toString() === viewedProduct.alt
+        ? viewedProduct.url
+        : product.url;
+
     return (
       <div>
         <img
-          key={id}
-          src={url}
-          alt={id}
-          {...product}
+          key={product.id}
+          src={view}
+          alt={product.id}
           onClick={handleRoomProductClick}
         />
       </div>

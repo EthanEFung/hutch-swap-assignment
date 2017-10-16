@@ -13,7 +13,7 @@ class App extends Component {
       room_photo: "",
       products: [],
       current_product: {},
-      similar_products: []
+      viewed_product: {}
     };
     this.handleRoomProductClick = this.handleRoomProductClick.bind(this);
     this.handleSimilarProductClick = this.handleSimilarProductClick.bind(this);
@@ -37,7 +37,7 @@ class App extends Component {
 
   handleRoomProductClick(e) {
     e.preventDefault();
-    const targetId = e.target.alt;
+    const targetId = e.target.getAttribute("alt");
     for (let product of this.state.products) {
       if (product.id.toString() === targetId) {
         this.setState({ current_product: product });
@@ -46,11 +46,17 @@ class App extends Component {
   }
 
   handleSimilarProductClick(e) {
-    e.preventDefault();
-    const { current_product } = this.state;
-    current_product.url = e.target.attributes.url.value;
+    let url = e.target.getAttribute("url");
+    let alt = e.target.getAttribute("alt");
+    let price = e.target.getAttribute("price");
 
-    this.setState({ current_product: current_product });
+    for (let product of this.state.products) {
+      if (product.id.toString() === alt) {
+        this.setState({ viewed_product: { url, alt, price } }, () => {
+          console.log(this.state);
+        });
+      }
+    }
   }
 
   render() {
@@ -59,8 +65,10 @@ class App extends Component {
       room_photo,
       products,
       current_product,
+      viewed_product,
       similar_products
     } = this.state;
+
     return (
       <div className="App">
         <div>{room_type}</div>
@@ -68,11 +76,12 @@ class App extends Component {
           roomType={room_type}
           roomPhoto={room_photo}
           products={products}
+          currentProduct={current_product}
+          viewedProduct={viewed_product}
           handleRoomProductClick={this.handleRoomProductClick}
         />
         <SimilarProductsView
           products={products}
-          similarProducts={similar_products}
           currentProduct={current_product}
           handleSimilarProductClick={this.handleSimilarProductClick}
         />
