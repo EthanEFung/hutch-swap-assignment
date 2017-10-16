@@ -12,11 +12,11 @@ class SimilarProductEntry extends Component {
       width: 100,
       margin: 10,
       padding: 5,
-      cursor: "pointer",
       boxShadow: "2px 2px 5px #999"
     };
 
     const productStyle = {
+      cursor: "pointer",
       height: 40
     };
 
