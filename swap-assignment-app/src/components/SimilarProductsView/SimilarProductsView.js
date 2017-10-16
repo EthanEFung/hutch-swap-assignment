@@ -6,12 +6,13 @@ class SimilarProductsView extends Component {
 
     const viewStyle = {
       float: "left",
-      width: 300
+      width: 150
     };
 
     const bannerStyle = {
-      width: 250,
+      width: "95%",
       margin: "0 25 0 25",
+      padding: 6,
       backgroundColor: "#eee"
     };
 

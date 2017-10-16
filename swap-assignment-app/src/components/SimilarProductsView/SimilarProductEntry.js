@@ -8,14 +8,16 @@ class SimilarProductEntry extends Component {
     } = this.props;
 
     const containerStyle = {
-      border: "1px solid #555",
-      width: 150,
+      border: "1px solid #666",
+      width: 100,
       margin: 10,
-      padding: 5
+      padding: 5,
+      cursor: "pointer",
+      boxShadow: "2px 2px 5px #999"
     };
 
     const productStyle = {
-      height: 60
+      height: 40
     };
 
     return (
@@ -33,7 +35,7 @@ class SimilarProductEntry extends Component {
           style={productStyle}
         />
         <div className="price" url={similarProduct.url}>
-          {similarProduct.price}
+          Price: ${similarProduct.price}
         </div>
       </div>
     );

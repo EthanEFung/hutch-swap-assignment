@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import RoomView from "./RoomView/RoomView";
 import SimilarProductsView from "./SimilarProductsView/SimilarProductsView";
 import getData from "../dummyData";
+import "../app.css";
 
 class App extends Component {
   constructor(props) {
@@ -68,13 +69,18 @@ class App extends Component {
     } = this.state;
 
     const appStyle = {
-      fontSize: 18,
-      fontFamily: "helvetica-neue",
-      textAlign: "center"
+      width: 460,
+      height: 320,
+      fontSize: 16,
+      fontFamily: "Lato",
+      textAlign: "left",
+      backgroundColor: "#ddd",
+      padding: 10
     };
 
     return (
       <div className="App" style={appStyle}>
+        <div>{room_type}</div>
         <RoomView
           roomType={room_type}
           roomPhoto={room_photo}

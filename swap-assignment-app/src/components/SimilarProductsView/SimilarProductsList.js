@@ -21,7 +21,13 @@ class SimilarProductsList extends Component {
           ))
         : "No similar items were found";
 
-    return <div>{similarItems}</div>;
+    const listStyle = {
+      width: 250,
+      padding: 5,
+      fontSize: 12
+    };
+
+    return <div style={listStyle}>{similarItems}</div>;
   }
 }
 

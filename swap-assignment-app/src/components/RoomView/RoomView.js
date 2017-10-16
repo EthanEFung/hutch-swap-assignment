@@ -16,8 +16,7 @@ class RoomView extends Component {
     };
 
     const roomStyle = {
-      width: 500,
-      zIndex: -1
+      width: 300
     };
 
     return (

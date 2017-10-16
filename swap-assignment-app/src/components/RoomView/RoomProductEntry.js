@@ -21,10 +21,9 @@ class RoomProductEntry extends Component {
       top: product.top / 100 * roomStyle.width,
       left: product.left / 100 * roomStyle.width,
       width: product.width / 100 * roomStyle.width,
-      height: product.height / 100 * roomStyle.width
+      height: product.height / 100 * roomStyle.width,
+      cursor: "pointer"
     };
-
-    console.log(productStyle);
 
     return (
       <img
